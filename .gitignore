@@ -1,0 +1,29 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Python Cache and Compiled Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment Config
+.env
+.env.local
+
+# Datasets (Raw and Processed)
+datasets/raw/
+datasets/processed/
+
+# Serialized Models and Data
+*.pkl
+*.joblib
+*.h5
+
+# Editor and System Files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
