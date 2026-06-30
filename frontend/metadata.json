@@ -1,0 +1,6 @@
+{
+  "name": "Aegis SOC",
+  "description": "A high-fidelity cyber security operations center (SOC) dashboard simulating real-time threat intelligence, model performance, logs, and global settings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

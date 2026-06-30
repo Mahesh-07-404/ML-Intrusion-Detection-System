@@ -1,0 +1,277 @@
+import { ThreatFeedItem, LogItem, UserItem, MitreColumn, MitigationItem } from '../types';
+
+export const initialThreatFeed: ThreatFeedItem[] = [
+  {
+    id: '1',
+    severity: 'CRITICAL',
+    actor: 'APTS-88',
+    time: '2m ago',
+    title: 'New variation of "BlackByte" ransomware detected in EU financial sector.',
+    cve: 'CVE-2024-1122',
+    tag: 'Ransomware',
+  },
+  {
+    id: '2',
+    severity: 'HIGH',
+    actor: 'CVE-UPDATE',
+    time: '14m ago',
+    title: 'Critical vulnerability in Apache Struts 2 (RCE) with active exploit code.',
+    cve: 'CVE-2023-4567',
+    tag: 'Exploit',
+  },
+  {
+    id: '3',
+    severity: 'INFO',
+    actor: 'ACTOR_TRACK',
+    time: '1h ago',
+    title: 'Lazarus Group observed rotating command & control infrastructure on TLS/3389.',
+    cve: 'APT38',
+    tag: 'Campaign',
+  },
+  {
+    id: '4',
+    severity: 'LOW',
+    actor: 'RECON',
+    time: '3h ago',
+    title: 'Increased scanning activity targeting custom ports from known Tor exit nodes.',
+    tag: 'Scanning',
+  },
+  {
+    id: '5',
+    severity: 'HIGH',
+    actor: 'CRED_STUFF',
+    time: '5h ago',
+    title: 'Brute-force credential stuffing attack detected against user login endpoints.',
+    cve: 'ATT&CK T1110',
+    tag: 'Brute Force',
+  },
+  {
+    id: '6',
+    severity: 'INFO',
+    actor: 'SECURE_AUDIT',
+    time: '8h ago',
+    title: 'Scheduled external subnet vulnerability assessment scan completed successfully.',
+    tag: 'Audit',
+  }
+];
+
+export const mitreMatrixData: MitreColumn[] = [
+  {
+    title: 'Initial Access',
+    borderColorClass: 'border-primary/40',
+    textColorClass: 'text-primary',
+    techniques: [
+      { name: 'Drive-by Comp.', activeState: 'full' },
+      { name: 'Exploit Public', activeState: 'none' },
+      { name: 'External Remote', activeState: 'semi' },
+      { name: 'Phishing', activeState: 'full' },
+      { name: 'Replication Media', activeState: 'none' },
+    ],
+  },
+  {
+    title: 'Execution',
+    borderColorClass: 'border-outline-variant/40',
+    textColorClass: 'text-on-surface-variant',
+    techniques: [
+      { name: 'AppleScript', activeState: 'none' },
+      { name: 'Command & Script', activeState: 'semi' },
+      { name: 'Inter-Process', activeState: 'none' },
+      { name: 'Native API', activeState: 'semi' },
+      { name: 'Scheduled Task', activeState: 'none' },
+    ],
+  },
+  {
+    title: 'Persistence',
+    borderColorClass: 'border-error/40',
+    textColorClass: 'text-error',
+    techniques: [
+      { name: 'Account Manip.', activeState: 'full' },
+      { name: 'Boot or Logon', activeState: 'semi' },
+      { name: 'Browser Ext.', activeState: 'none' },
+      { name: 'Create Account', activeState: 'full' },
+      { name: 'Event Trigger', activeState: 'none' },
+    ],
+  },
+  {
+    title: 'Discovery',
+    borderColorClass: 'border-outline-variant/40',
+    textColorClass: 'text-on-surface-variant',
+    techniques: [
+      { name: 'Account Discovery', activeState: 'semi' },
+      { name: 'File Discovery', activeState: 'semi' },
+      { name: 'Network Service', activeState: 'none' },
+      { name: 'Process Disc.', activeState: 'full' },
+      { name: 'System Info', activeState: 'none' },
+    ],
+  },
+  {
+    title: 'C2',
+    borderColorClass: 'border-secondary/40',
+    textColorClass: 'text-secondary',
+    techniques: [
+      { name: 'Application Layer', activeState: 'full' },
+      { name: 'Encrypted Channel', activeState: 'semi' },
+      { name: 'Ingress Tool', activeState: 'none' },
+      { name: 'Multi-hop Proxy', activeState: 'full' },
+      { name: 'Web Service', activeState: 'semi' },
+    ],
+  },
+];
+
+export const recommendedMitigations: MitigationItem[] = [
+  {
+    id: 'm1',
+    title: 'User Training',
+    description: 'Simulate phishing campaigns and train staff to identify suspicious email indicators and macro-enabled links.',
+    iconType: 'policy',
+  },
+  {
+    id: 'm2',
+    title: 'Antivirus/Antimalware',
+    description: 'Ensure real-time scanning is enabled for all email attachments and temporary runtime download directories.',
+    iconType: 'dns',
+  },
+  {
+    id: 'm3',
+    title: 'Email Gateway Filtering',
+    description: 'Deploy strict DMARC/SPF/DKIM policies and cloud-hosted attachment sandboxing at the enterprise perimeter.',
+    iconType: 'security',
+  },
+];
+
+export const initialLogs: LogItem[] = [
+  {
+    id: 'log1',
+    timestamp: '2026-06-30 14:02:11.452',
+    severity: 'CRITICAL',
+    eventType: 'SQL Injection Attempt',
+    sourceIp: '192.168.1.104',
+    target: 'DB_PROD_01',
+    message: 'Blocked malicious payload UNION SELECT in URI param \'id\' at /api/v1/users',
+  },
+  {
+    id: 'log2',
+    timestamp: '2026-06-30 14:01:58.210',
+    severity: 'WARNING',
+    eventType: 'Auth Failure',
+    sourceIp: '45.23.11.89',
+    target: 'Auth_Srv',
+    message: 'Multiple failed login attempts for user \'admin\' from single IP subnet in 10s.',
+  },
+  {
+    id: 'log3',
+    timestamp: '2026-06-30 14:01:45.001',
+    severity: 'INFO',
+    eventType: 'System Update',
+    sourceIp: 'Localhost',
+    target: 'Kernel_02',
+    message: 'Successfully pulled update package \'sec-patch-11-23\' and reloaded microcode.',
+  },
+  {
+    id: 'log4',
+    timestamp: '2026-06-30 14:00:33.112',
+    severity: 'HIGH',
+    eventType: 'Lateral Movement',
+    sourceIp: '10.0.4.55',
+    target: 'Internal_WS',
+    message: 'Suspicious PowerShell script execution attempting LSASS dump on workstation \'WS-992\'.',
+  },
+  {
+    id: 'log5',
+    timestamp: '2026-06-30 13:59:12.872',
+    severity: 'DEBUG',
+    eventType: 'API Request',
+    sourceIp: '172.16.0.5',
+    target: 'API_Gateway',
+    message: 'GET /v1/status - HTTP 200 - latency 45ms from subnet gateway',
+  },
+  {
+    id: 'log6',
+    timestamp: '2026-06-30 13:58:05.109',
+    severity: 'DEBUG',
+    eventType: 'Log Rotation',
+    sourceIp: 'System',
+    target: 'Filesystem',
+    message: 'Log file /var/log/syslog.1 rotated successfully. 12.4MB compressed.',
+  },
+  {
+    id: 'log7',
+    timestamp: '2026-06-30 13:57:44.221',
+    severity: 'WARNING',
+    eventType: 'Resource Usage',
+    sourceIp: 'System',
+    target: 'Node_05',
+    message: 'High CPU usage (92%) detected on worker node. Microservices auto-scaling triggered.',
+  },
+  {
+    id: 'log8',
+    timestamp: '2026-06-30 13:54:10.041',
+    severity: 'INFO',
+    eventType: 'DHCP Allocate',
+    sourceIp: '10.0.4.150',
+    target: 'DHCP_Router',
+    message: 'Allocated IP 10.0.4.150 to MAC addr aa:bb:cc:dd:ee:ff for 24h lease.',
+  },
+  {
+    id: 'log9',
+    timestamp: '2026-06-30 13:50:22.990',
+    severity: 'HIGH',
+    eventType: 'Exfiltration Alert',
+    sourceIp: '10.0.4.19',
+    target: 'S3_Backup',
+    message: 'Atypical high volume data egress (4.1 GB) to public cloud bucket by user-service.',
+  },
+  {
+    id: 'log10',
+    timestamp: '2026-06-30 13:45:00.000',
+    severity: 'CRITICAL',
+    eventType: 'Ransomware Execution',
+    sourceIp: '192.168.1.15',
+    target: 'Finance_Share',
+    message: 'Cryptographic lock signatures detected on network folder shares. Blocking IP range.',
+  }
+];
+
+export const initialUsers: UserItem[] = [
+  {
+    id: 'u1',
+    name: 'Sarah Jenkins',
+    email: 's.jenkins@aegis.io',
+    role: 'Super_Admin',
+    access: 'Full System Access',
+    lastActivity: '2 minutes ago',
+    sessionIp: '192.168.1.42',
+    active: true,
+  },
+  {
+    id: 'u2',
+    name: 'Marcus Kaine',
+    email: 'm.kaine@aegis.io',
+    role: 'L2_Analyst',
+    access: 'Read/Write Analytics',
+    lastActivity: '1 hour ago',
+    sessionIp: '172.16.0.11',
+    active: false,
+  },
+  {
+    id: 'u3',
+    name: 'Elena Lopez',
+    email: 'e.lopez@aegis.io',
+    role: 'Auditor',
+    access: 'Log Visualization Only',
+    lastActivity: '3 days ago',
+    sessionIp: 'VPN_Endpoint_3',
+    active: false,
+  },
+];
+
+export const activeConnections = [
+  { ip: '172.16.254.1', protocol: 'TLS 1.3', status: 'STABLE', geo: 'US_EAST_01', color: 'text-secondary' },
+  { ip: '45.22.190.11', protocol: 'SSH', status: 'BLOCKED', geo: 'CN_SHANGHAI', color: 'text-error' },
+  { ip: '10.0.4.88', protocol: 'HTTPS', status: 'STABLE', geo: 'GATEWAY_EAST', color: 'text-secondary' },
+  { ip: '192.168.5.12', protocol: 'UDP', status: 'FILTERED', geo: 'EU_FRANKFURT', color: 'text-tertiary' },
+  { ip: '172.16.254.82', protocol: 'TLS 1.3', status: 'STABLE', geo: 'GATEWAY_CENTRAL', color: 'text-secondary' },
+  { ip: '8.8.8.8', protocol: 'DNS', status: 'STABLE', geo: 'US_WEST_02', color: 'text-secondary' },
+  { ip: '185.220.101.4', protocol: 'Tor Egress', status: 'BLOCKED', geo: 'RU_MOSCOW', color: 'text-error' },
+  { ip: '110.45.12.90', protocol: 'HTTP/s', status: 'FILTERED', geo: 'AS_TOKYO', color: 'text-tertiary' }
+];

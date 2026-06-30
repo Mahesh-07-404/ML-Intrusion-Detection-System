@@ -34,7 +34,7 @@ line-length = 88
 [tool.ruff.lint]
 # Enable Pyflakes (F), pycodestyle (E, W), isort (I), pep8-naming (N), flake8-bugbear (B), pyupgrade (UP)
 select = ["F", "E", "W", "I", "N", "B", "UP", "C90"]
-ignore = []
+ignore = ["E501"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
